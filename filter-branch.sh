@@ -11,6 +11,6 @@ do_filter_branch() {
 }
 
 git for-each-ref refs/heads | while read commit type branch; do
-    git checkout -b "${branch##*/}-new" "$commit"
+    git checkout -b "${branch#refs/heads/}-new" "$commit"
     do_filter_branch
 done
